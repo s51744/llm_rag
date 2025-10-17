@@ -1,0 +1,28 @@
+{
+  "book_info": {
+    "book_id": "難經新解",
+    "title": "難經新解",
+    "source_path": "..\\book\\難經新解.pdf",
+    "total_chapters": 1,
+    "total_chunks": 1,
+    "processed_at": "2025-10-08T20:25:24.156829"
+  },
+  "chapters": [
+    {
+      "title": "前言",
+      "content": "T\n"
+    }
+  ],
+  "chunks": [
+    {
+      "book_id": "難經新解",
+      "book_title": "難經新解",
+      "chapter_id": 0,
+      "chapter_title": "前言",
+      "chunk_id": 0,
+      "content": "T\n",
+      "content_length": 2,
+      "created_at": "2025-10-08T20:25:24.156829"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "processed_at": "2025-10-07T20:29:25.944784",
+  "total_books": 7,
+  "successful": 6,
+  "failed": 1,
+  "results": [
+    {
+      "status": "success",
+      "book_id": "中國醫學史",
+      "chapters": 1,
+      "chunks": 2,
+      "output_file": "rag_system\\data\\中國醫學史_processed.json"
+    },
+    {
+      "status": "success",
+      "book_id": "中醫藥物學講義(中國醫長庚合編)目錄升級版",
+      "chapters": 2321,
+      "chunks": 2374,
+      "output_file": "rag_system\\data\\中醫藥物學講義(中國醫長庚合編)目錄升級版_processed.json"
+    },
+    {
+      "status": "success",
+      "book_id": "傷寒論承啟版(知音出版社)",
+      "chapters": 2,
+      "chunks": 14,
+      "output_file": "rag_system\\data\\傷寒論承啟版(知音出版社)_processed.json"
+    },
+    {
+      "status": "error",
+      "message": "文本提取失敗"
+    },
+    {
+      "status": "success",
+      "book_id": "方劑學-唐娜櫻(中國醫_長庚)",
+      "chapters": 5,
+      "chunks": 5,
+      "output_file": "rag_system\\data\\方劑學-唐娜櫻(中國醫_長庚)_processed.json"
+    },
+    {
+      "status": "success",
+      "book_id": "方劑學承啟版-許濟群(知音出版社)",
+      "chapters": 340,
+      "chunks": 908,
+      "output_file": "rag_system\\data\\方劑學承啟版-許濟群(知音出版社)_processed.json"
+    },
+    {
+      "status": "success",
+      "book_id": "難經新解",
+      "chapters": 1,
+      "chunks": 1,
+      "output_file": "rag_system\\data\\難經新解_processed.json"
+    }
+  ]
+}
