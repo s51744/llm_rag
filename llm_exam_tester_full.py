@@ -206,7 +206,16 @@ D. {option_d}"""
                 start_time = time.time()
                 llm_response = self.call_llm(question_text)
                 response_time = time.time() - start_time
-                
+                MODEL_PARAM_COUNT = 7e9  # Qwen2.5-7B 參數數量
+
+                # 計算token估算值
+                num_tokens = len(llm_response.split())
+                # 計算總運算量
+                ops = num_tokens * MODEL_PARAM_COUNT * 2
+                # 計算TOPS（每秒Tera operations）
+                tops = ops / response_time / 1e12
+                print(f'TOPS for this question: {tops:.4f}')
+
                 # Extract answer from response
                 llm_answer = self.extract_answer_from_response(llm_response)
                 
@@ -425,7 +434,7 @@ def main():
     args = parser.parse_args()
     
     # File paths
-    base_dir = "C:\\Users\\Personal\\Downloads\\BianCang-main\\BianCang-main"
+    base_dir = "C:/Users/Personal/Documents/GitHub/llm_rag"
     csv_files = [
         f"{base_dir}\\llm_exam\\中醫基礎醫學_106年考題(一).csv",
         f"{base_dir}\\llm_exam\\中醫基礎醫學_106年考題(二).csv",

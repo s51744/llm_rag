@@ -193,6 +193,16 @@ class LLMExamTesterRAG(LLMExamTester):
                 start_time = time.time()
                 llm_response = self.call_llm(rag_prompt_text)
                 response_time = time.time() - start_time
+                
+                MODEL_PARAM_COUNT = 7e9  # Qwen2.5-7B 參數數量
+                # 計算token估算值
+                num_tokens = len(llm_response.split())
+                # 計算總運算量
+                ops = num_tokens * MODEL_PARAM_COUNT * 2
+                # 計算TOPS（每秒Tera operations）
+                tops = ops / response_time / 1e12
+                print(f'TOPS for this question: {tops:.4f}')
+
 
                 # 解析 LLM 回答
                 llm_answer = self.extract_answer_from_response(llm_response)
@@ -254,7 +264,7 @@ def main():
     parser.add_argument('--max-context-tokens', type=int, default=500, help='(選用) 模型上下文視窗大小（tokens），用於 RAG prompt 截斷')
     args = parser.parse_args()
 
-    base_dir = Path("C:/Users/Personal/Downloads/BianCang-main/BianCang-main")
+    base_dir = Path("C:/Users/Personal/Documents/GitHub/llm_rag")
     csv_files = [
         base_dir / "llm_exam" / "中醫基礎醫學_106年考題(一).csv",
         base_dir / "llm_exam" / "中醫基礎醫學_106年考題(二).csv",
@@ -288,7 +298,6 @@ def main():
         print("✓ LLM API 連接正常")
     except:
         print("✗ 警告: 無法連接到 LLM API，請確認服務正在運行")
-
 
     processed_files = 0
     for csv_file in csv_files:
